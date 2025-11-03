@@ -1,0 +1,244 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+
+% Unit setup
+\sisetup{per-mode=symbol, separate-uncertainty=true}
+
+\title{PHYS 121 -- Lab Report: Viscosity (Lab A)}
+\author{Juntang Wang}
+\date{}
+
+\begin{document}
+
+% Include the lab notebook PDF pages first
+\includepdf[pages=-]{Lab_02_notebook.pdf}
+
+\maketitle
+
+% Header Information (fill as appropriate)
+\begin{center}
+\begin{tabular}{ll}
+\textbf{Name:} & Juntang Wang \\
+\textbf{Date:} & Oct 29, 2025 \\
+\textbf{Lab Partner(s):} & Yuanfei Hu \\
+\textbf{Instructor:} & Kai Wang and Chen Xi \\
+\textbf{Section:} & Wednesday \\
+\end{tabular}
+\end{center}
+
+\vspace{0.5in}
+
+\section{Objective}
+Measure the dynamic viscosity of liquids using two independent methods: (i) a falling-ball viscometer operating in the Stokes flow regime and (ii) a Cannon--Fenske capillary viscometer. Compare the results with literature values at the measured temperature (\SI{22.0}{\celsius} in our run) and quantify uncertainties.
+
+\section{Theory}
+% Subsections and detailed derivations will be filled below.
+
+\subsection{Falling-ball (Stokes) viscometer}
+When a sphere of radius $r$ and density $\rho_s$ falls through a viscous fluid of density $\rho_f$ at terminal speed $v$, the Stokes drag $6\pi\eta r v$ balances the net weight: $6\pi\eta r v = (\rho_s-\rho_f) V g$ with $V=\tfrac{4}{3}\pi r^3$. Solving for viscosity gives (Equation 9 in manual)
+\begin{equation}
+  \eta = \frac{2(\rho_s-\rho_f) g\, r^2}{9\, v}, \qquad v = \frac{h}{t}.
+\end{equation}
+For a finite tube of radius $R$ a wall correction may be applied as $\eta \left(1+2.4\,\tfrac{r}{R}\right)$ when required. The uncertainty propagation follows from taking the natural logarithm (Equations 13--16 in manual).
+
+\subsection{Cannon--Fenske capillary viscometer}
+The kinematic viscosity $\nu$ is proportional to the measured efflux time $t$ via the instrument constant $C$ (and an optional small-time correction $\delta t$ if specified):
+\begin{equation}
+  \nu = C\,(t - \delta t) \approx C t, \qquad \eta = \rho\,\nu.
+\end{equation}
+
+\section{Apparatus and Setup}
+\textbf{Experiment 1: Falling-ball viscometer}
+\begin{itemize}[nosep]
+  \item Glass cylinder (inner diameter measured, see Data section).
+  \item Steel balls (nominal diameters \SI{0.9}{mm} and \SI{1.2}{mm}).
+  \item Marker bands defining fall distance $h$ along the cylinder.
+  \item Thermometer and room thermometer.
+  \item Stopwatch / video timer.
+\end{itemize}
+
+\textbf{Experiment 2: Cannon--Fenske viscometer}
+\begin{itemize}[nosep]
+  \item Cannon--Fenske viscometer (size per kit, unknown constant $C$ initially).
+  \item Water (for calibration at \SI{22}{\celsius}).
+  \item Salt solution (\SI{10}{\percent} w/v), sugar solution (\SI{20}{\percent} w/v).
+  \item Thermometer; density tables for solutions.
+\end{itemize}
+
+\section{Data}
+\subsection*{Experiment 1: Falling-ball}
+\textit{Recorded quantities with uncertainties (per template):}
+\begin{enumerate}[leftmargin=*]
+  \item Room temperature: $T=\SI{22.0\pm0.2}{\celsius}$. Density of castor oil by $\rho(T)=974-0.614\,T$ (\si{kg\,m^{-3}}): $\rho=\SI{960.47\pm0.12}{kg\,m^{-3}}$.
+  \item Graduated cylinder: $D_0=\SI{78.11\pm0.02}{mm}$ $(U_D=\SI{0.02}{mm})$, fall height $h=\SI{200.3\pm1.0}{mm}$ $(U_h=\SI{1.0}{mm})$.
+  \item Density of the steel ball: $\rho_0=(\SI{7.80\pm0.05}{})\times10^3\;\si{kg\,m^{-3}}$ $(U_{\rho_0}=\SI{0.05e3}{kg\,m^{-3}})$.
+\end{enumerate}
+
+Ball diameter measurements (\si{mm}) for six balls; $d' = \bar d - d_0$ is the mean diameter per ball less zero error:
+
+\begin{table}[h]
+\centering
+\caption{Steel ball diameters (9 mm ball)}
+\begin{tabular}{@{}l*{8}{S[table-format=1.3]}@{}}
+\toprule
+{} & {$d_0$ (zero error)} & {$d_1$} & {$d_2$} & {$d_3$} & {$d_4$} & {$d_5$} & {$d_6$} & {$d'=\bar d - d_0$} \\
+\midrule
+ball$_{1}$ & 0.000  & 0.880 & 0.890 & 0.900 & 0.910 & 0.920 & 0.900 & 0.900 \\
+ball$_{2}$ & 0.000  & 0.852 & 0.909 & 0.900 & 0.910 & 0.900 & 0.890 & 0.893 \\
+ball$_{3}$ & 0.000  & 0.910 & 0.900 & 0.892 & 0.890 & 0.900 & 0.910 & 0.900 \\
+ball$_{4}$ & 0.000  & 0.882 & 0.900 & 0.890 & 0.880 & 0.892 & 0.890 & 0.889 \\
+ball$_{5}$ & 0.000  & 0.892 & 0.900 & 0.890 & 0.910 & 0.900 & 0.912 & 0.901 \\
+ball$_{6}$ & 0.000  & 0.890 & 0.900 & 0.910 & 0.892 & 0.902 & 0.890 & 0.897 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Using $\rho_s=\SI{7.80e3}{kg\,m^{-3}}$, $\rho_f=\SI{960.47}{kg\,m^{-3}}$, $r=\SI{0.45}{mm}$, and $v=\SI{3.29e-3}{m\,s^{-1}}$ in Eq.~(1) gives $\eta\approx\SI{0.92}{Pa\,s}$. The Reynolds number $\mathrm{Re}=2\rho_f v r/\eta\approx 3\times10^{-3}\ll1$, validating Stokes flow.
+
+\newpage
+
+\begin{table}[h]
+\centering
+\caption{Travel time and velocity of the ball and the viscosity of castor oil (0.9 mm)}
+\begin{tabular}{@{}l *{6}{S[table-format=3.2]}@{}}
+\toprule
+\textbf{Measurement \#} & {$t_1$} & {$t_2$} & {$t_3$} & {$t_4$} & {$t_5$} & {$t_6$} \\
+\midrule
+$t$ (\si{s}) & 62.97 & 60.63 & 60.66 & 61.35 & 60.84 & 58.81 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{\hskip 1.5em}l@{\hskip 2em}S[table-format=2.2]@{\hskip 2em}S[table-format=1.2e-2]@{\hskip 2em}S[table-format=1.2]@{\hskip 1.5em}}
+\toprule
+& {$\bar{t}$ (\si{s})} & {$v$ (\si{m\,s^{-1}})} & {$\eta$ (\si{Pa\,s})} \\
+\midrule
+& 60.88 & 3.29e-3 & 0.92 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Error analysis for DIRECT measurements}
+\begin{tabular}{@{}p{0.4\linewidth} *{6}{S[table-format=1.3]}@{}}
+\toprule
+{} & {ball$_1$} & {ball$_2$} & {ball$_3$} & {ball$_4$} & {ball$_5$} & {ball$_6$} \\
+\midrule
+$d' = \bar{d} - d_0$ & 0.900 & 0.893 & 0.900 & 0.889 & 0.901 & 0.897 \\
+\midrule
+Standard deviation (Bessel's correction) & {0.014} & {0.020} & {0.008} & {0.007} & {0.009} & {0.007} \\
+$s = \sqrt{\dfrac{1}{n-1}\sum_{i=1}^{n}(d_i - \bar{d})^2}$ & {} & {} & {} & {} & {} & {} \\
+\midrule
+Standard uncertainty & {0.006} & {0.008} & {0.003} & {0.003} & {0.004} & {0.003} \\
+$U_d = \dfrac{s}{\sqrt{n}}$ & {} & {} & {} & {} & {} & {} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Final results for each ball: $d = d' \pm U_d$:
+\begin{itemize}[nosep]
+  \item ball$_1$: $d = \SI{0.900\pm0.006}{mm}$
+  \item ball$_2$: $d = \SI{0.893\pm0.008}{mm}$
+  \item ball$_3$: $d = \SI{0.900\pm0.003}{mm}$
+  \item ball$_4$: $d = \SI{0.889\pm0.003}{mm}$
+  \item ball$_5$: $d = \SI{0.901\pm0.004}{mm}$
+  \item ball$_6$: $d = \SI{0.897\pm0.003}{mm}$
+\end{itemize}
+
+\subsection*{Experiment 2: Cannon--Fenske}
+
+Using $\nu_s=\SI{9.58e-7}{m^2\,s^{-1}}$ and $\bar{t}_s=\SI{306.20}{s}$, the viscometer constant is $C=\nu_s/\bar{t}_s=\SI{3.13e-9}{m^2\,s^{-2}}$. For the salt solution, $\nu=C\bar{t}=\SI{1.01e-6}{m^2\,s^{-1}}$ and $\eta=\rho\nu=\SI{1.08e-3}{Pa\,s}$.
+
+Using Equations 13 and 16, we determine $\eta' = \eta \pm U_\eta = \SI{1.08\pm0.02}{mPa\,s}$.
+
+\begin{table}[h]
+  \centering
+  \caption{Viscosity measurement using capillary viscometer (Cannon--Fenske viscometer)}
+  \begin{tabular}{@{}p{0.4\linewidth}p{0.35\linewidth}p{0.2\linewidth}@{}}
+  \toprule
+  \textbf{Parameter/Substance} & \textbf{Value} & \textbf{Note} \\
+  \midrule
+  $T$ (\si{\celsius}) & 22.0 & To measure \\
+  \midrule
+  \multicolumn{3}{l}{\textbf{Water}} \\
+  $\rho_s$ (\si{kg\,m^{-3}}) & 997.77 & Appendix A \\
+  $\eta_s$ (\si{Pa\,s}) & 0.000955 & Equation 23 \\
+  $\nu_s$ (\si{m^2\,s^{-1}}) & 9.58e-7 & Equation 2 \\
+  $t_s$ (\si{s}) & 318.04, 310.22, 300.12, 301.55, 305.11, 302.15. Average: 306.20 & To measure \\
+  \midrule
+  \multicolumn{3}{l}{\textbf{Salt (10\% w/v)}} \\
+  Bé (\si{\degree} Bé) & 9 & To measure \\
+  $\rho$ (\si{kg\,m^{-3}}) & 1064.04 & Equations 21 \& 22 \\
+  $t$ (\si{s}) & 321.21, 316.22, 330.19, 320.11, 324.35, 330.01. Average: 323.68 & To measure \\
+  $\nu$ (\si{m^2\,s^{-1}}) & 1.01e-6 & Equation 19 or 20 \\
+  $\eta$ (\si{Pa\,s}) & 1.08e-3 & Equation 2 \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+\textbf{Note:} Keep two digits after the decimal point for the values of $\eta'$, $\eta$ and $U_\eta$.
+
+\section{Analysis}
+\subsection*{Uncertainty propagation (Exp 1)}
+Let $\eta=\dfrac{2(\rho_s-\rho_f)gr^2}{9v}$ with $v=h/t$. The relative uncertainty is
+\begin{equation}
+  \left(\frac{\sigma_\eta}{\eta}\right)^2\!\approx
+  \left(\frac{\sigma_{\rho_s-\rho_f}}{\rho_s-\rho_f}\right)^2+\left(2\frac{\sigma_r}{r}\right)^2+\left(\frac{\sigma_h}{h}\right)^2+\left(\frac{\sigma_t}{t}\right)^2.
+\end{equation}
+From the notebook: $h=\SI{200.3\pm1.0}{mm}$ (\SI{0.5}{\percent}), time spread $\sigma_t\approx\SI{1.4}{s}$ over $\bar t=\SI{60.88}{s}$ (\SI{2.3}{\percent}). Taking ball radius $r=\SI{0.45\pm0.01}{mm}$ (\SI{2.2}{\percent}) and density uncertainty dominated by the steel value (\SI{0.6}{\percent}), the combined relative uncertainty is about \SI{3.4}{\percent}, giving $\eta=\SI{0.92\pm0.03}{Pa\,s}$.
+
+\subsection*{Reynolds number}
+Using the reported $v=\SI{3.29e-3}{m\,s^{-1}}$, $\eta=\SI{0.92}{Pa\,s}$, $r=\SI{0.45}{mm}$ and $\rho_f=\SI{960.5}{kg\,m^{-3}}$, $\mathrm{Re}=2\rho_f v r/\eta\approx3\times10^{-3}\ll1$.
+
+\subsection*{Uncertainty (Exp 2)}
+For the viscometer, with $\nu=Ct$ from water calibration, $\sigma_\nu/\nu=\sqrt{(\sigma_C/C)^2+(\sigma_t/t)^2}$. Dynamic viscosity uncertainty adds density: $\sigma_\eta/\eta=\sqrt{(\sigma_\nu/\nu)^2+(\sigma_\rho/\rho)^2}$.
+
+For the salt solution: time spread $\sigma_t\approx\SI{5.6}{s}$ over $\bar t=\SI{323.68}{s}$ (\SI{1.7}{\percent}), and assuming $\sigma_C/C\approx\SI{0.5}{\percent}$ from water calibration uncertainty, we get $\sigma_\nu/\nu\approx\SI{1.8}{\percent}$. With $\sigma_\rho/\rho\approx\SI{0.1}{\percent}$ (from density formula), $\sigma_\eta/\eta\approx\SI{1.8}{\percent}$, giving $U_\eta\approx\SI{0.02}{mPa\,s}$ for $\eta=\SI{1.08}{mPa\,s}$.
+
+\section{Error Analysis}
+Dominant effects include: (i) timing variability setting the largest contribution in Exp~1; (ii) wall effects and end effects if the ball accelerates before reaching terminal speed; (iii) temperature drift of both oil and solutions; (iv) density estimates from tables; and (v) capillary viscometer meniscus reading and drainage corrections. The Reynolds-number check confirms creeping flow, so inertial corrections are negligible.
+
+\section{Conclusion}
+From the falling-ball method at \SI{22}{\celsius} we obtain $\eta_{\text{oil}}=\SI{0.92\pm0.03}{Pa\,s}$, consistent with typical castor-oil values near \SI{1}{Pa\,s} depending on temperature.
+
+The Cannon--Fenske calibration yields $C=\SI{3.13e-9}{m^2\,s^{-2}}$ at \SI{22}{\celsius}; for the \SI{10}{\percent} salt solution we find the dynamic viscosity $\eta=\SI{0.00108}{Pa\,s}$ with uncertainty \SI{0.00002}{Pa\,s}, giving the final result $\eta^{\prime}$ = \SI{1.08\pm0.02}{mPa\,s}. This value is consistent with literature values for \SI{10}{\percent} NaCl solutions at room temperature, which typically range from \SI{1.0}{to}\SI{1.2}{mPa\,s} at \SI{22}{\celsius}, confirming the validity of our experimental method.
+
+\subsection*{Conceptual Questions and Answers}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{How can you verify that the steel ball has reached terminal velocity?}
+  
+  Terminal velocity is verified by measuring the ball's velocity at different segments or positions. If the ball travels equal distances in equal time intervals (constant velocity), or if repeated measurements of the fall time over the same distance (N1 to N2) are consistent, the ball has reached terminal velocity. The ball reaches terminal velocity when the drag force balances the net weight, which occurs after an initial acceleration phase.
+  
+  \item \textbf{What are the assumptions behind Stokes' Law, and are they valid in this experiment?}
+  
+  Stokes' Law assumptions include: (1) infinite fluid medium (though wall corrections may be applied for finite tubes); (2) rigid, spherical particle; (3) steady, laminar flow (creeping flow, Re << 1); (4) Newtonian fluid; (5) no-slip boundary condition; and (6) negligible inertial effects. These are validated here by $\mathrm{Re}=2\rho_f v r/\eta\approx3\times10^{-3}\ll1$, confirming creeping flow conditions. The Newtonian assumption is reasonable for castor oil at these conditions.
+  
+  \item \textbf{How does the position from which the ball is dropped (higher/lower) affect the results?}
+  
+  Dropping the ball from a higher position provides more time and distance for the ball to reach terminal velocity before entering the measurement zone (N1 to N2). If dropped from too low a position, the ball may not have reached terminal velocity by the time it enters the measurement zone, leading to higher measured velocities and thus lower calculated viscosities. Measurements should be taken only after N1 to avoid transients, ensuring the ball has reached terminal velocity.
+  
+  \item \textbf{What effect would tilting the cylinder or viscometer have on the measurement?}
+  
+  For the falling-ball viscometer, tilting the cylinder introduces a reduced effective gravitational component along the tube axis and creates wall proximity asymmetry. The ball may contact the wall more frequently, affecting the drag and measured terminal velocity, leading to errors in the calculated viscosity. For the capillary viscometer, tilting changes the hydrostatic head and flow path geometry, altering the efflux time and thus the measured kinematic viscosity.
+  
+  \item \textbf{How does temperature affect viscosity, and how would your results change in a warmer room?}
+  
+  Higher temperature lowers viscosity (typically following an exponential relationship). In a warmer room, both methods would report smaller viscosities. For the falling-ball method, higher temperature decreases both the fluid viscosity and its density (affecting the net weight term). For the capillary viscometer, temperature affects the calibration constant $C$ (determined from water at a specific temperature) and the test fluid's viscosity. Since viscosity is temperature-dependent, maintaining constant temperature during measurements is critical for accurate results.
+\end{itemize}
+
+\section{Additional Notes}
+Large language models (LLMs) were used as translators and brainstorming assistants during the completion of this report, no other additional help was provided.
+
+\end{document}
+
+
