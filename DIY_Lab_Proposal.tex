@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{enumitem}
+
+% Unit setup
+\sisetup{per-mode=symbol, separate-uncertainty=true}
+
+\title{PHYS 121 -- DIY Lab Proposal}
+\author{Juntang Wang \and Yuanfei Hu}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{DIY Lab Proposal}
+
+\subsection*{Name:}
+Juntang Wang (jw853)\\
+Yuanfei Hu (yh366)
+
+\subsection*{Experiment Topic:}
+Investigating the functional relationship between sound velocity and temperature in air, with secondary exploration of pressure effects. The primary objective is to measure how the speed of sound varies with temperature and verify the theoretical relationship $v \propto \sqrt{T}$. As a secondary goal, we will explore pressure dependence using a vacuum chamber if available. This extends the previous lab, which measured sound speed at fixed environmental conditions, by systematically varying parameters to determine functional relationships.
+
+\subsection*{Experimental Method:}
+We will use the traveling wave method from the previous sound speed lab to measure the speed of sound at systematically varied environmental conditions. The method involves using ultrasonic transducers (transmitter and receiver) connected to a function generator and oscilloscope. By moving the receiver along a calibrated path and identifying positions where the transmitter and receiver waves are in phase, we can determine the wavelength $\lambda$. Combined with the known frequency $f$ from the function generator, we calculate the speed of sound using $v = f\lambda$.
+
+\textbf{Primary investigation -- Temperature dependence:}
+We will conduct measurements at 5-8 different temperatures spanning a range of approximately \SI{15}{\celsius} to \SI{30}{\celsius} (or the available range in the lab environment). For each temperature, we will:
+\begin{enumerate}
+    \item Record the ambient temperature using a thermometer
+    \item Record relative humidity and atmospheric pressure (for correction calculations)
+    \item Perform wavelength measurements at 6-10 different receiver positions to determine $\lambda$
+    \item Calculate the speed of sound $v = f\lambda$ for that temperature
+\end{enumerate}
+We will plot $v$ vs. $T$ (in Kelvin) and verify the expected square-root relationship. We will also compare results with the theoretical prediction from Equation (3) of the previous lab: $v = 331.5\sqrt{(1 + t/273.15)(1 + 0.16(rp_s)/p)}$, where $t$ is temperature in \si{\celsius}, $r$ is relative humidity, $p_s$ is saturation vapor pressure, and $p$ is atmospheric pressure.
+
+\textbf{Secondary exploration -- Pressure dependence:}
+If a vacuum chamber is available and functional, we will conduct additional measurements at 3-4 different pressure levels (e.g., atmospheric pressure, \SI{75}{\percent}, \SI{50}{\percent}, and \SI{25}{\percent} of atmospheric pressure) while maintaining constant temperature. This will allow us to explore how sound speed depends on pressure, though this is secondary to the temperature investigation.
+
+For all measurements, we will perform error analysis and discuss sources of uncertainty, including measurement precision, environmental fluctuations, and limitations of the experimental setup.
+
+\subsection*{Instruments/Equipment Used:}
+\begin{itemize}
+    \item Sound velocimeter (with transmitter and receiver transducers)
+    \item Function generator (to produce ultrasonic sine waves at \SI{40}{\kilo\hertz})
+    \item Dual-channel oscilloscope (to display and analyze the transmitted and received signals)
+    \item Digital vernier caliper (resolution \SI{0.01}{\milli\meter}) for measuring receiver positions
+    \item Thermometer (resolution \SI{0.1}{\celsius}) for temperature measurements
+    \item Hygrometer (resolution \SI{1}{\percent}) for relative humidity measurements (to record for theoretical corrections)
+    \item Pressure gauge or barometer for atmospheric pressure measurements (to record for theoretical corrections)
+    \item Vacuum chamber with pressure gauge (if available and functional) for secondary pressure variation experiments
+    \item BNC cables for connecting equipment
+    \item Methods for temperature variation: conducting measurements at different times/locations in the lab, or using available heating/cooling equipment if accessible
+\end{itemize}
+
+\end{document}
+
