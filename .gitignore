@@ -38,3 +38,6 @@ Thumbs.db
 # Backup files
 *.bak
 *.backup
+
+# Sensitive DIY Lab data and files
+sensitive/
